@@ -48,9 +48,23 @@ describe "#my_transpose" do
     matrix = [[1,2,3],
               [4,5,6],
               [7,8,9]]
-    it "takes in a 2d array"
-    it "throws error if not array"
-    it 'throws error if array is not square'
-    it "returns the array transposed"
-    it 'works with any data type'
+    it "throws error if not array" do
+        expect{ my_transpose("str") }.to raise_error "wrong input type"
+    end
+
+    it 'throws error if array is not square' do
+        expect{ my_transpose([[2,3,4],[2,3]]) }.to raise_error "is not square"
+        expect{ my_transpose(matrix) }.not_to raise_error
+    end
+
+    it "returns the array transposed" do
+        expect(my_transpose(matrix)).to eq([[1,4,7],[2,5,8],[3,6,9]])
+    end
+
+    it 'works with any data type' do
+        expect(my_transpose([["a","b"],["c","d"]])).to eq([["a","c"],["b","d"]])
+        expect(my_transpose([[1,2],[3,4]])).to eq([[1,3],[2,4]])
+        expect(my_transpose([[[1,2],[3,4]],[[5,6],[7,8]]])).to eq([[[1,2],[5,6]],[[3,4],[7,8]]])
+
+    end
 end
