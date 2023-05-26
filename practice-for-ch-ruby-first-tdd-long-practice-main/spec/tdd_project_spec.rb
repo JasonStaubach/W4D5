@@ -43,3 +43,14 @@ describe '#two_sum' do
         expect{ two_sum(array, :white) }.to raise_error "wrong input types"
     end
 end
+
+describe "#my_transpose" do
+    matrix = [[1,2,3],
+              [4,5,6],
+              [7,8,9]]
+    it "takes in a 2d array"
+    it "throws error if not array"
+    it 'throws error if array is not square'
+    it "returns the array transposed"
+    it 'works with any data type'
+end
