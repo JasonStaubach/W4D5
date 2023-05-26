@@ -29,3 +29,21 @@ def my_transpose(arr)
     end
     trans
 end
+
+def stock_prices(arr)
+    # debugger
+    raise "wrong input" unless arr.is_a?(Array) && (arr.length > 1) && arr.all?{|num| num.is_a?(Integer)}
+    max = 0
+    bigi = nil
+    bigj = nil
+    (0...arr.length).each do |i|
+        (i+1...arr.length).each do |j|
+            if max < arr[j]-arr[i]
+                max = arr[j]-arr[i] 
+                bigi = i
+                bigj = j
+            end
+        end
+    end
+    [bigi,bigj]
+end

@@ -69,8 +69,25 @@ describe "#my_transpose" do
 end
 
 describe "#stock_prices" do
-    it 'returns an array of length 2'
-    it 'always returns a buy sell combo where it buys before it sells'
-    it 'returns an error if it isnt given an array of numbers'
+    stocks1 = [0,3,5,7,-2,4,6,2]
+    stocks2 = [9,3,5,3,1,4]
+    it 'returns an array of length 2' do
+        expect(stock_prices(stocks1).length).to eq(2)
+        expect(stock_prices(stocks2).length).to eq(2)
+    end
+    it 'always returns a buy sell combo where it buys before it sells' do
+        expect(stock_prices(stocks1)).to eq([4,6])
+        expect(stock_prices(stocks2)).to eq([4,5])
+    end
+
+    it 'returns an error if it isnt given an array of numbers' do
+        expect{ stock_prices("hello") }.to raise_error "wrong input"
+        expect{ stock_prices(["hi",'fight','dead']) }.to raise_error "wrong input"
+        expect{ stock_prices([5]) }.to raise_error "wrong input"
+    end
+    it "returns the right answer" do
+        expect(stock_prices(stocks1)).to eq([4,6])
+        expect(stock_prices(stocks2)).to eq([4,5])
+    end
 end
     
