@@ -1,5 +1,6 @@
 require 'tdd_project'
 require 'rspec'
+require "byebug"
 
 describe '#uniq' do
     array = [1,2,3,3,4,5]
@@ -15,17 +16,20 @@ describe '#uniq' do
     end
 
     it "throws error if not passing in array" do
-        expect{ uniq(:wet) }.to raise_error
+        expect{ uniq(:wet) }.to raise_error "Wrong argument type"
     end
 end
 
 describe '#two_sum' do
-    array[1,2,3,4,5]
+    array = [1,2,3,4,5]
     it "returns an array" do
         expect(two_sum(array, 6)).to be_instance_of(Array)
+    end
+
     it "returns sub-array in left to right order" do
-        expect(two_sum(array, 6)).to eq([[1,5],[2,4]])
-        expect(two_sum(array, 3)).to eq([[1,2]])
+        expect(two_sum(array, 6)).to eq([[0,4],[1,3]])
+        expect(two_sum(array, 3)).to eq([[0,1]])
+        expect(two_sum([0,1,3,2,4,-1,3], 3)).to eq ([[0,2],[0,6],[1,3],[4,5]])
     end
 
     it "returns all sub-array of length two" do
@@ -35,7 +39,7 @@ describe '#two_sum' do
     end
 
     it "raises error if given wrong arguments" do
-        expect{ two_sum(5,6) }.to raise_error
-        expect{ two_sum(array, :white) }.to raise_error
+        expect{ two_sum(5,6) }.to raise_error "wrong input types"
+        expect{ two_sum(array, :white) }.to raise_error "wrong input types"
     end
 end
