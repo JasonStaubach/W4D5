@@ -65,6 +65,12 @@ describe "#my_transpose" do
         expect(my_transpose([["a","b"],["c","d"]])).to eq([["a","c"],["b","d"]])
         expect(my_transpose([[1,2],[3,4]])).to eq([[1,3],[2,4]])
         expect(my_transpose([[[1,2],[3,4]],[[5,6],[7,8]]])).to eq([[[1,2],[5,6]],[[3,4],[7,8]]])
-
     end
 end
+
+describe "#stock_prices" do
+    it 'returns an array of length 2'
+    it 'always returns a buy sell combo where it buys before it sells'
+    it 'returns an error if it isnt given an array of numbers'
+end
+    
